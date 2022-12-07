@@ -129,8 +129,6 @@ const hasTokenVerification = () => {
     })
     .catch(function (error) {
     })
-
-
 }
 
 
