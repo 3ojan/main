@@ -161,7 +161,12 @@ app.post('/test', function (req, res) {
 app.get('/home', (req, res) => {
   res
     .status(200)
-    .send('Hello server is running')
+    .send(`<!DOCTYPE html>
+<html>
+<body>
+<h1>Poslan request</h1>
+</body>
+</html>`)
     .end();
 });
 
