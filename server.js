@@ -11,9 +11,9 @@ var data = JSON.stringify({
   "mimetype": "pdf",
   "signatureType": "sign",
   "url": {
-    "signDocument": "https://www.strizivojna.hr/potpisDokumenta",
-    "success": "https://www.strizivojna.hr/download/?token=",
-    "error": "https://www.strizivojna.hr/error?token="
+    "signDocument": "https://e-racun.herokuapp.com/test",
+    "success": "https://e-racun.herokuapp.com/test",
+    "error": "https://e-racun.herokuapp.com/test"
   }
 });
 
@@ -76,7 +76,9 @@ const stepFour = () => {
 
   axios(config)
     .then(function (response) {
-      console.log(response)
+      const res = JSON.parse(JSON.stringify(response.data));
+      console.log("4 4 4 4 4 STEP FOUR")
+      console.log(res)
       stepFive();
 
     })
@@ -97,7 +99,9 @@ const patchWithHash = () => {
 
   axios(config)
     .then(function (response) {
-      console.log(response.data)
+      const res = JSON.parse(JSON.stringify(response.data));
+      console.log("3 3 3 3 3 3 3 THIRD DATA")
+      console.log(res)
       stepFour();
 
     })
@@ -113,8 +117,10 @@ const hasTokenVerification = () => {
   axios(config)
     .then(function (response) {
       const data = second.getData(token, verificationCodes);
-      console.log(data)
-      console.log("data******")
+      const res = JSON.parse(JSON.stringify(response.data));
+      console.log("2 2 2 2 2 2 2 2 2 SECOND CALL RESPONSE")
+      console.log(res)
+
       config.data = data;
       config.url = "https://test.epotpis.rdd.hr/api/v1/pades";
 
@@ -140,6 +146,8 @@ const iniCall = () => {
     .then(function (response) {
       // console.log(JSON.stringify(response.data));
       const res = JSON.parse(JSON.stringify(response.data));
+      console.log("1 1 1 1 11 1 1 1 1 1 INIT DATA ");
+      console.log(res)
       token = res.token;
       verificationCodes = res.verificationCodes[0];
       hasTokenVerification();
@@ -150,7 +158,8 @@ const iniCall = () => {
 }
 
 
-app.get('/test', function (req, res) {
+app.post('/test', function (req, res) {
+  console.log("RESPONSE FROM E-POTPIS")
   res.send('Hello GET Request!');
 });
 
