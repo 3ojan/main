@@ -157,10 +157,6 @@ app.post('/test', function (req, res) {
   res.send('Hello GET Request!');
 });
 
-app.get('/generate', function (req, res) {
-  iniCall();
-  res.send('Zahtjev poslan')
-});
 
 app.get('/home', (req, res) => {
   res
