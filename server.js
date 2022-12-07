@@ -1,6 +1,10 @@
 const express = require('express');
 const app = express();
 
+app.get('/test', function (req, res) {
+  res.send('Hello GET Request!');
+});
+
 app.get('/', (req, res) => {
   res
     .status(200)
@@ -14,3 +18,5 @@ app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
   console.log('Press Ctrl+C to quit.');
 });
+
+
