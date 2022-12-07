@@ -114,28 +114,23 @@ const patchWithHash = () => {
 
 ///// after token and verification code comes 2.nd
 const hasTokenVerification = () => {
+  const data = second.getData(token, verificationCodes);
+
+  config.data = data;
+  config.url = "https://test.epotpis.rdd.hr/api/v1/pades";
+
   axios(config)
     .then(function (response) {
-      const data = second.getData(token, verificationCodes);
       const res = JSON.parse(JSON.stringify(response.data));
       console.log("2 2 2 2 2 2 2 2 2 SECOND CALL RESPONSE")
       console.log(res)
-
-      config.data = data;
-      config.url = "https://test.epotpis.rdd.hr/api/v1/pades";
-
-      axios(config)
-        .then(function (response) {
-          documents = response.data.documents;
-          patchWithHash()
-        })
-        .catch(function (error) {
-        })
-
+      documents = response.data.documents;
+      patchWithHash()
     })
     .catch(function (error) {
-      console.log(error);
-    });
+    })
+
+
 }
 
 
