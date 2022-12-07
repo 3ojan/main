@@ -34,6 +34,7 @@ let verificationCodes;
 let documents;
 
 
+
 const stepFive = () => {
 
   config.url = "https://test.epotpis.rdd.hr/api/v1/pades";
@@ -154,6 +155,11 @@ const iniCall = () => {
 app.post('/test', function (req, res) {
   console.log("RESPONSE FROM E-POTPIS")
   res.send('Hello GET Request!');
+});
+
+app.get('/generate', function (req, res) {
+  iniCall();
+  res.send('Zahtjev poslan')
 });
 
 app.get('/home', (req, res) => {
