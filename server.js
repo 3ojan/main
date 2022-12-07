@@ -163,7 +163,7 @@ app.post('/test', function (req, res) {
   res.send('Hello GET Request!');
 });
 
-app.get('/', (req, res) => {
+app.get('/home', (req, res) => {
   res
     .status(200)
     .send('Hello server is running')
