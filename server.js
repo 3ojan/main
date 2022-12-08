@@ -94,7 +94,9 @@ const stepFour = () => {
 
     })
     .catch(function (error) {
-      console.log(error);
+      const err = JSON.parse(JSON.stringify(error));
+      console.log(err);
+      console.log("ERRORRRR");
     });
 }
 
