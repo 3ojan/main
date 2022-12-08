@@ -170,7 +170,7 @@ app.post('/signDocument', function (req, res) {
   const response = JSON.parse(JSON.stringify(req.body));
   certificate = response.userCertificate;
   documents = response.documents;
-  response.status(201);
+  res.status(201);
   stepFour();
   // res.send('Hello World!')
   console.log("RESPONSE FROM SIGN DOCUMENT - END")
