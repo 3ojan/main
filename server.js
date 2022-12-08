@@ -78,7 +78,6 @@ const stepFour = () => {
   const data = {
     token,
     documents,
-    certificate,
     signatureFormat: "pades",
     signatureLevel: "b",
     userCertificate: certificate,
