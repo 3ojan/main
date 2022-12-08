@@ -166,13 +166,12 @@ const iniCall = () => {
 
 app.post('/signDocument', function (req, res) {
   console.log("RESPONSE FROM SIGN DOCUMENT")
-  console.log(req.body)
-  certificate = req.body.userCertificate;
-  documents = req.body.documents;
+  console.log(req.body);
+  const res = JSON.parse(JSON.stringify(req.body));
+  certificate = res.userCertificate;
+  documents = res.documents;
   res.status(201);
   stepFour();
-
-
   // res.send('Hello World!')
   console.log("RESPONSE FROM SIGN DOCUMENT - END")
 
