@@ -38,6 +38,7 @@ var config = {
 let token;
 let verificationCodes;
 let documents;
+let certificate;
 
 
 
@@ -72,12 +73,15 @@ const stepFive = () => {
 }
 
 const stepFour = () => {
-  config.url = "https://httpbin.org/get";
+  config.url = "https://test.epotpis.rdd.hr/api/v1/pades";
   config.method = "post";
-  documents[0]["mimetype"] = "PDF";
   const data = {
     token,
-    documents
+    documents,
+    certificate,
+    signatureFormat: "pades",
+    signatureLevel: "b",
+    userCertificate: userCertificate,
   };
   config.data = data;
 
@@ -86,7 +90,7 @@ const stepFour = () => {
       const res = JSON.parse(JSON.stringify(response.data));
       console.log("4 4 4 4 4 STEP FOUR")
       console.log(res)
-      stepFive();
+      // stepFive();
 
     })
     .catch(function (error) {
@@ -163,8 +167,13 @@ const iniCall = () => {
 app.post('/signDocument', function (req, res) {
   console.log("RESPONSE FROM SIGN DOCUMENT")
   console.log(req.body)
-  // res.send('Hello World!')
+  certificate = req.body.userCertificate;
+  documents = req.body.documents;
   res.status(201);
+  stepFour();
+
+
+  // res.send('Hello World!')
   console.log("RESPONSE FROM SIGN DOCUMENT - END")
 
 });
@@ -179,7 +188,6 @@ app.post('/success', function (req, res) {
 app.post('/error', function (req, res) {
   console.log("RESPONSE FROM ERROR")
   console.log(req);
-  // stepFour();
   console.log("RESPONSE FROM ERROR - END")
 
 });
