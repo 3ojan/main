@@ -126,6 +126,7 @@ const hasTokenVerification = () => {
       console.log("2 2 2 2 2 2 2 2 2 SECOND CALL RESPONSE")
       console.log(res)
       documents = response.data.documents;
+      data
       patchWithHash()
     })
     .catch(function (error) {
