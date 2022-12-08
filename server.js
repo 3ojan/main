@@ -161,8 +161,8 @@ app.post('/signDocument', function (req, res) {
   console.log(req.body);
   console.log(req.body);
   // stepFour();
-  requ.on("data", () => {
-
+  req.on("data", (data) => {
+    console.log(data)
   });
   res.sendStatus(201);
   console.log("RESPONSE FROM SIGN DOCUMENT - END")
