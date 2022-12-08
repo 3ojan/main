@@ -74,7 +74,7 @@ const stepFive = () => {
 
 const stepFour = () => {
   config.url = "https://test.epotpis.rdd.hr/api/v1/pades";
-  config.method = "post";
+  config.method = "patch";
   const data = {
     token,
     documents,
