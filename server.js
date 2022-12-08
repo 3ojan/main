@@ -2,8 +2,11 @@ const express = require('express');
 var cors = require('cors')
 const app = express();
 var axios = require('axios');
+const bp = require('body-parser')
 var second = require('./2.js');
 app.use(cors())
+app.use(bp.json())
+app.use(bp.urlencoded({ extended: true }))
 
 var axios = require('axios');
 var second = require('./2.js');
@@ -157,10 +160,8 @@ const iniCall = () => {
 
 app.post('/signDocument', function (req, res) {
   console.log("RESPONSE FROM SIGN DOCUMENT")
-  console.log(req.body);
-  req.on("data", (data) => {
-    console.log(data)
-  });
+  console.log(req.body)
+  res.send('Hello World!')
   res.sendStatus(201);
   console.log("RESPONSE FROM SIGN DOCUMENT - END")
 
