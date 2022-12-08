@@ -1,12 +1,13 @@
 const express = require('express');
 var cors = require('cors')
-const app = express();
 var axios = require('axios');
 const bp = require('body-parser')
 var second = require('./2.js');
+const app = express();
 app.use(cors())
-app.use(bp.json())
 app.use(bp.urlencoded({ extended: true }))
+app.use(bp.json())
+app.set("appSecret", "secretforinvoicingapp")
 
 var axios = require('axios');
 var second = require('./2.js');
@@ -16,9 +17,9 @@ var data = JSON.stringify({
   "mimetype": "pdf",
   "signatureType": "sign",
   "url": {
-    "signDocument": "https://e-racun.herokuapp.com/signDocument?signDocument=",
-    "success": "https://e-racun.herokuapp.com/success?successtoken=",
-    "error": "https://e-racun.herokuapp.com/error?errortoken="
+    "signDocument": "https://e-racun.herokuapp.com/signDocument",
+    "success": "https://e-racun.herokuapp.com/success=",
+    "error": "https://e-racun.herokuapp.com/error="
   }
 });
 
@@ -161,8 +162,8 @@ const iniCall = () => {
 app.post('/signDocument', function (req, res) {
   console.log("RESPONSE FROM SIGN DOCUMENT")
   // console.log(req.body)
-  res.send('Hello World!')
-  res.sendStatus(201);
+  // res.send('Hello World!')
+  res.status(201);
   console.log("RESPONSE FROM SIGN DOCUMENT - END")
 
 });
