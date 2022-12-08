@@ -75,12 +75,25 @@ const stepFive = () => {
 const stepFour = () => {
   config.url = "https://test.epotpis.rdd.hr/api/v1/pades";
   config.method = "patch";
+  const newDocuments = [
+    {
+      documents[0].hash,
+      documents[0].signedHash,
+      documents[0].verificationCode,
+      documents[0].mimetype,
+    }
+  ]
   const data = {
     token,
-    documents,
+    documents: newDocuments,
     signatureFormat: "pades",
     signatureLevel: "b",
     userCertificate: certificate,
+    "tsaAccess": {
+      "url": "https://tsa.id.hr/qts",
+      "username": "tsa username",
+      "password": "tsa pass",
+    }
   };
   config.data = data;
 
