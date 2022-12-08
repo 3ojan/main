@@ -11,9 +11,9 @@ var data = JSON.stringify({
   "mimetype": "pdf",
   "signatureType": "sign",
   "url": {
-    "signDocument": "https://e-racun.herokuapp.com/test?signDocument=",
-    "success": "https://e-racun.herokuapp.com/test?successtoken=",
-    "error": "https://e-racun.herokuapp.com/test?errortoken="
+    "signDocument": "https://e-racun.herokuapp.com/signDocument?signDocument=",
+    "success": "https://e-racun.herokuapp.com/success?successtoken=",
+    "error": "https://e-racun.herokuapp.com/error?errortoken="
   }
 });
 
@@ -153,12 +153,25 @@ const iniCall = () => {
 }
 
 
-app.post('/test', function (req, res) {
-  console.log("RESPONSE FROM E-POTPIS")
+app.post('/signDocument', function (req, res) {
+  console.log("RESPONSE FROM SIGN DOCUMENT")
   console.log(req);
   stepFour();
-  console.log("RESPONSE FROM E-POTPIS")
-  res.send('Hello GET Request!');
+  console.log("RESPONSE FROM SIGN DOCUMENT - END")
+
+});
+app.post('/success', function (req, res) {
+  console.log("RESPONSE FROM SUCCESS")
+  console.log(req);
+  stepFour();
+  console.log("RESPONSE FROM SUCCESS - END")
+
+});
+app.post('/error', function (req, res) {
+  console.log("RESPONSE FROM ERROR")
+  console.log(req);
+  // stepFour();
+  console.log("RESPONSE FROM ERROR - END")
 
 });
 app.post('/home', function (req, res) {
