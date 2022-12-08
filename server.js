@@ -11,7 +11,7 @@ var data = JSON.stringify({
   "mimetype": "pdf",
   "signatureType": "sign",
   "url": {
-    "signDocument": "https://e-racun.herokuapp.com/test",
+    "signDocument": "https://e-racun.herokuapp.com/test?signDocument=",
     "success": "https://e-racun.herokuapp.com/test?successtoken=",
     "error": "https://e-racun.herokuapp.com/test?errortoken="
   }
