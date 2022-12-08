@@ -77,12 +77,12 @@ const stepFour = () => {
   config.method = "patch";
   const newDocuments = [
     {
-      documents[0].hash,
-      documents[0].signedHash,
-      documents[0].verificationCode,
-      documents[0].mimetype,
+      hash: documents[0].hash,
+      signedHash: documents[0].signedHash,
+      verificationCode: documents[0].verificationCode,
+      mimetype: documents[0].mimetype,
     }
-  ]
+  ];
   const data = {
     token,
     documents: newDocuments,
