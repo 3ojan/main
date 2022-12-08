@@ -156,12 +156,14 @@ const iniCall = () => {
 app.post('/test', function (req, res) {
   console.log("RESPONSE FROM E-POTPIS")
   console.log(req);
+  stepFour();
   console.log("RESPONSE FROM E-POTPIS")
   res.send('Hello GET Request!');
 
 });
 app.post('/home', function (req, res) {
-  console.log("RESPONSE FROM E-POTPIS")
+  console.log("RESPONSE FROM E-POTPIS");
+
   res.send(`<!DOCTYPE html>
 <html>
 <body>
