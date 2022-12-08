@@ -1,7 +1,9 @@
 const express = require('express');
+var cors = require('cors')
 const app = express();
 var axios = require('axios');
 var second = require('./2.js');
+app.use(cors())
 
 var axios = require('axios');
 var second = require('./2.js');
