@@ -12,8 +12,8 @@ var data = JSON.stringify({
   "signatureType": "sign",
   "url": {
     "signDocument": "https://e-racun.herokuapp.com/test",
-    "success": "https://e-racun.herokuapp.com/test",
-    "error": "https://e-racun.herokuapp.com/test"
+    "success": "https://e-racun.herokuapp.com/test?successtoken=",
+    "error": "https://e-racun.herokuapp.com/test?errortoken="
   }
 });
 
@@ -156,6 +156,18 @@ const iniCall = () => {
 app.post('/test', function (req, res) {
   console.log("RESPONSE FROM E-POTPIS")
   res.send('Hello GET Request!');
+});
+app.post('/home', function (req, res) {
+  console.log("RESPONSE FROM E-POTPIS")
+  res.send(`<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Heading</h1>
+
+
+</body>
+</html>`);
 });
 
 
