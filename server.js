@@ -155,15 +155,22 @@ const iniCall = () => {
 
 app.post('/signDocument', function (req, res) {
   console.log("RESPONSE FROM SIGN DOCUMENT")
-  console.log(req);
+  console.log(req.body);
+  console.log(req.body);
+  console.log(req.body);
+  console.log(req.body);
+  console.log(req.body);
   // stepFour();
+  requ.on("data", () => {
+
+  });
   res.sendStatus(201);
   console.log("RESPONSE FROM SIGN DOCUMENT - END")
 
 });
 app.post('/success', function (req, res) {
   console.log("RESPONSE FROM SUCCESS")
-  console.log(req);
+
   // stepFour();
 
   console.log("RESPONSE FROM SUCCESS - END")
