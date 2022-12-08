@@ -155,8 +155,10 @@ const iniCall = () => {
 
 app.post('/signDocument', function (req, res) {
   console.log("RESPONSE FROM SIGN DOCUMENT")
-  // stepFour();
-  console.log(req)
+  console.log(req.body);
+  req.on("data", (data) => {
+    console.log(data)
+  });
   res.sendStatus(201);
   console.log("RESPONSE FROM SIGN DOCUMENT - END")
 
