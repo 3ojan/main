@@ -81,7 +81,7 @@ const stepFour = () => {
     certificate,
     signatureFormat: "pades",
     signatureLevel: "b",
-    userCertificate: userCertificate,
+    userCertificate: certificate,
   };
   config.data = data;
 
