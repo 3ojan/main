@@ -89,11 +89,6 @@ const stepFour = () => {
     signatureFormat: "pades",
     signatureLevel: "b",
     userCertificate: certificate,
-    "tsaAccess": {
-      "url": "https://tsa.id.hr/qts",
-      "username": "tsa username",
-      "password": "tsa pass",
-    }
   };
   config.data = data;
 
