@@ -83,6 +83,8 @@ const stepFour = () => {
       mimetype: documents[0].mimetype,
     }
   ];
+  console.log("new Documnets")
+  console.log(config)
   const data = {
     token,
     documents: newDocuments,
