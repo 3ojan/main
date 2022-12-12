@@ -114,7 +114,7 @@ const hasTokenVerification = () => {
   config.url = "https://test.epotpis.rdd.hr/api/v1/pades";
 
   console.log("hasTokenVerification");
-  console.log(config);
+  console.log(JSON.stringify(config));
   console.log("hasTokenVerification end");
 
   axios(config)
