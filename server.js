@@ -85,6 +85,8 @@ const stepFour = () => {
   ];
   console.log("new Documnets")
   console.log(config)
+  console.log(JSON.stringify(newDocuments))
+  console.log("new Documnets END")
   const data = {
     token,
     documents: newDocuments,
