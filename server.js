@@ -156,7 +156,7 @@ app.post('/signDocument', function (req, res) {
   certificate = response.userCertificate;
   documents = response.documents;
   res.status(201);
-  setTimeout(() = {
+  setTimeout(() => {
     stepFour();
   }, 2000)
   // res.send('Hello World!')
