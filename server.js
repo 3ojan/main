@@ -8,6 +8,7 @@ app.use(cors())
 app.use(bp.urlencoded({ extended: true }))
 app.use(bp.json())
 app.set("appSecret", "secretforinvoicingapp")
+// app.timeout = 60 * 1000 * 10;
 
 var axios = require('axios');
 var second = require('./2.js');
@@ -40,37 +41,6 @@ let verificationCodes;
 let documents;
 let certificate;
 
-
-
-const stepFive = () => {
-
-  config.url = "https://test.epotpis.rdd.hr/api/v1/pades";
-  config.method = "patch";
-  documents[0]["mimetype"] = "PDF";
-  const data = {
-    token,
-    signatureFormat: "pades",
-    "signatureLevel": "lta",
-    "tsaAccess": {
-      "url": "https://tsa.id.hr/qts",
-      "username": "tsa username",
-      "password": "tsa pass",
-    },
-    documents
-
-  };
-  config.data = data;
-
-  axios(config)
-    .then(function (response) {
-      console.log(response)
-      // stepFive();
-
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-}
 
 const stepFour = () => {
   config.url = "https://test.epotpis.rdd.hr/api/v1/pades";
@@ -142,6 +112,10 @@ const hasTokenVerification = () => {
 
   config.data = data;
   config.url = "https://test.epotpis.rdd.hr/api/v1/pades";
+
+  console.log("hasTokenVerification");
+  console.log(config);
+  console.log("hasTokenVerification end");
 
   axios(config)
     .then(function (response) {
