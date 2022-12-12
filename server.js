@@ -53,10 +53,6 @@ const stepFour = () => {
       mimetype: documents[0].mimetype,
     }
   ];
-  console.log("new Documnets")
-  console.log(config)
-  console.log(JSON.stringify(newDocuments))
-  console.log("new Documnets END")
   const data = {
     token,
     documents: newDocuments,
@@ -64,6 +60,9 @@ const stepFour = () => {
     signatureLevel: "b",
     userCertificate: certificate,
   };
+  console.log("new data")
+  console.log(JSON.stringify(data))
+  console.log("new data END")
   config.data = data;
 
   axios(config)
@@ -123,7 +122,6 @@ const hasTokenVerification = () => {
       console.log("2 2 2 2 2 2 2 2 2 SECOND CALL RESPONSE")
       console.log(res)
       documents = response.data.documents;
-      data
       patchWithHash()
     })
     .catch(function (error) {
@@ -158,7 +156,9 @@ app.post('/signDocument', function (req, res) {
   certificate = response.userCertificate;
   documents = response.documents;
   res.status(201);
-  stepFour();
+  setTimeout(() = {
+    stepFour();
+  }, 2000)
   // res.send('Hello World!')
   console.log("RESPONSE FROM SIGN DOCUMENT - END")
 
