@@ -145,6 +145,13 @@ const iniCall = () => {
 
 
 
+app.get('/initCall', function (req, res) {
+  iniCall();
+  return res.status(201).send({
+    success: true,
+  })
+});
+
 app.get('/potpisaniDokument', function (req, res) {
   return res.status(201).send({
     success: true,
@@ -152,7 +159,7 @@ app.get('/potpisaniDokument', function (req, res) {
 });
 
 app.get('/newDocument', function (req, res) {
-  iniCall();
+  // iniCall();
   return res.status(201).send({
     success: true,
   })
