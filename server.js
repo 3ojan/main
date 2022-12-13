@@ -141,11 +141,11 @@ const iniCall = () => {
 
 
 app.get('/potpisaniDokument', function (req, res) {
-  stepFour();
   return res.status(201).send({
     success: true,
   })
 });
+
 app.get('/newDocument', function (req, res) {
   iniCall();
   return res.status(201).send({
@@ -160,7 +160,43 @@ app.post('/signDocument', function (req, res) {
   const response = JSON.parse(JSON.stringify(req.body));
   certificate = response.userCertificate;
   documents = response.documents;
-  console.log("RESPONSE FROM SIGN DOCUMENT - END")
+  console.log("RESPONSE FROM SIGN DOCUMENT - END");
+
+  setTimeout(() => {
+    config.url = "https://test.epotpis.rdd.hr/api/v1/pades";
+    config.method = "patch";
+    const newDocuments = [
+      {
+        hash: documents[0].hash,
+        signedHash: documents[0].signedHash,
+        verificationCode: documents[0].verificationCode,
+        mimetype: documents[0].mimetype,
+      }
+    ];
+    const data = {
+      token,
+      documents: newDocuments,
+      signatureFormat: "pades",
+      signatureLevel: "b",
+      userCertificate: certificate,
+    };
+    config.data = data;
+    const _data = JSON.parse(JSON.stringify(config));
+    console.log(_data)
+    console.log("_data")
+    axios(config)
+      .then(function (response) {
+        const res = JSON.parse(JSON.stringify(response.data));
+        console.log("4 4 4 4 4 STEP FOUR")
+        console.log(res)
+        // stepFive();
+      })
+      .catch(function (error) {
+        const err = JSON.parse(JSON.stringify(error));
+        console.log(err);
+        console.log("ERRORRRR");
+      });
+  }, 20000)
   return res.status(201).send({
     success: true,
   })
