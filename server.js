@@ -45,6 +45,7 @@ let certificate;
 const stepFour = () => {
   config.url = "https://test.epotpis.rdd.hr/api/v1/pades";
   config.method = "patch";
+
   const newDocuments = [
     {
       hash: documents[0].hash,
@@ -53,9 +54,11 @@ const stepFour = () => {
       mimetype: documents[0].mimetype,
     }
   ];
+
+
   const data = {
     token,
-    documents: JSON.stringify(newDocuments),
+    documents: { ...documents },
     signatureFormat: "pades",
     signatureLevel: "b",
     userCertificate: certificate,
