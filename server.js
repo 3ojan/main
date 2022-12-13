@@ -147,6 +147,11 @@ const iniCall = () => {
 
 
 
+app.get('/newDocument', function (req, res) {
+  iniCall();
+  // res.send('Hello World!')
+});
+
 app.post('/signDocument', function (req, res) {
   console.log("RESPONSE FROM SIGN DOCUMENT")
   console.log(req.body);
@@ -159,7 +164,6 @@ app.post('/signDocument', function (req, res) {
     success: true,
   })
   // res.send('Hello World!')
-
 });
 app.post('/success', function (req, res) {
   console.log("RESPONSE FROM SUCCESS")
