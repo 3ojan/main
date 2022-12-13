@@ -78,7 +78,6 @@ const stepFour = () => {
       console.log("ERRORRRR");
     });
 }
-
 ///step 3
 const patchWithHash = () => {
   config.url = "https://test.epotpis.rdd.hr/api/v1/transactions/hash";
@@ -155,9 +154,7 @@ app.post('/signDocument', function (req, res) {
   certificate = response.userCertificate;
   documents = response.documents;
   res.status(201);
-  setTimeout(() => {
-    stepFour();
-  }, 2000)
+  stepFour();
   // res.send('Hello World!')
   console.log("RESPONSE FROM SIGN DOCUMENT - END")
 
