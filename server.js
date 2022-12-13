@@ -167,6 +167,7 @@ app.post('/signDocument', function (req, res) {
 });
 app.post('/success', function (req, res) {
   console.log("RESPONSE FROM SUCCESS")
+  console.log(req);
   console.log("RESPONSE FROM SUCCESS - END")
   return res.status(201).send({
     success: true,
