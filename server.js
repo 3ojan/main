@@ -154,8 +154,11 @@ app.post('/signDocument', function (req, res) {
   const response = JSON.parse(JSON.stringify(req.body));
   certificate = response.userCertificate;
   documents = response.documents;
-  stepFour();
   console.log("RESPONSE FROM SIGN DOCUMENT - END")
+  setTimeout(() => {
+    console.log("REQUSET SENT ")
+    stepFour();
+  }, 3000);
   return res.status(201).send({
     success: true,
   })
