@@ -170,9 +170,9 @@ app.post('/signDocument', function (req, res) {
   console.log("RESPONSE FROM SIGN DOCUMENT")
   console.log(req.body);
   const response = JSON.parse(JSON.stringify(req.body));
-  certificate = response.userCertificate;
-  documents = response.documents;
-  signedDocumentsResponse = response.documents;
+  certificate = req.body.userCertificate;
+  documents = req.body.documents;
+  signedDocumentsResponse = req.body.documents;
   console.log("RESPONSE FROM SIGN DOCUMENT - END");
 
   setTimeout(() => {
