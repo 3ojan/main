@@ -155,14 +155,18 @@ app.post('/signDocument', function (req, res) {
   documents = response.documents;
   stepFour();
   console.log("RESPONSE FROM SIGN DOCUMENT - END")
-  return res.status(201);
+  return res.status(201).send({
+    success: true,
+  })
   // res.send('Hello World!')
 
 });
 app.post('/success', function (req, res) {
   console.log("RESPONSE FROM SUCCESS")
   console.log("RESPONSE FROM SUCCESS - END")
-  return res.status(201);
+  return res.status(201).send({
+    success: true,
+  })
   // stepFour();
 
 });
@@ -170,7 +174,9 @@ app.post('/error', function (req, res) {
   console.log("RESPONSE FROM ERROR")
   console.log(req);
   console.log("RESPONSE FROM ERROR - END")
-  return res.status(201);
+  return res.status(201).send({
+    success: true,
+  })
 
 });
 
