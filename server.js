@@ -57,7 +57,7 @@ const stepFour = () => {
   ];
 
 
-  const data = {
+  const __data = {
     token,
     documents: signedDocumentsResponse,
     signatureFormat: "pades",
@@ -65,7 +65,7 @@ const stepFour = () => {
     userCertificate: certificate,
   };
 
-  config.data = data;
+  config.data = __data;
 
   axios(config)
     .then(function (response) {
@@ -175,6 +175,7 @@ app.post('/signDocument', function (req, res) {
     success: true,
   })
   // res.send('Hello World!')
+
 });
 app.post('/success', function (req, res) {
   console.log("RESPONSE FROM SUCCESS")
