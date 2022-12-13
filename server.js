@@ -35,6 +35,8 @@ var config = {
   data: data
 };
 
+const origConfig = { ...config };
+
 
 let token;
 let verificationCodes;
@@ -130,7 +132,7 @@ const hasTokenVerification = () => {
 
 ////init call to get otken and and verification code
 const iniCall = () => {
-  axios(config)
+  axios(origConfig)
     .then(function (response) {
       // console.log(JSON.stringify(response.data));
       const res = JSON.parse(JSON.stringify(response.data));
@@ -153,18 +155,12 @@ app.get('/initCall', function (req, res) {
 });
 
 app.get('/potpisaniDokument', function (req, res) {
+
   return res.status(201).send({
     success: true,
   })
 });
 
-app.get('/newDocument', function (req, res) {
-  // iniCall();
-  return res.status(201).send({
-    success: true,
-  })
-  // res.send('Hello World!')
-});
 
 app.post('/signDocument', function (req, res) {
   console.log("RESPONSE FROM SIGN DOCUMENT")
