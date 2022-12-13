@@ -153,24 +153,24 @@ app.post('/signDocument', function (req, res) {
   const response = JSON.parse(JSON.stringify(req.body));
   certificate = response.userCertificate;
   documents = response.documents;
-  res.status(201);
   stepFour();
-  // res.send('Hello World!')
   console.log("RESPONSE FROM SIGN DOCUMENT - END")
+  return res.status(201);
+  // res.send('Hello World!')
 
 });
 app.post('/success', function (req, res) {
   console.log("RESPONSE FROM SUCCESS")
-  res.status(201);
-  // stepFour();
   console.log("RESPONSE FROM SUCCESS - END")
+  return res.status(201);
+  // stepFour();
 
 });
 app.post('/error', function (req, res) {
   console.log("RESPONSE FROM ERROR")
   console.log(req);
-  res.status(201);
   console.log("RESPONSE FROM ERROR - END")
+  return res.status(201);
 
 });
 
