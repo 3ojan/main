@@ -170,10 +170,6 @@ app.post('/signDocument', function (req, res) {
   documents = req.body.documents;
   signedDocumentsResponse = req.body.documents;
   console.log("RESPONSE FROM SIGN DOCUMENT - END");
-
-  setTimeout(() => {
-    stepFour();
-  }, 3000)
   return res.status(201).send({
     success: true,
   })
@@ -183,6 +179,9 @@ app.post('/signDocument', function (req, res) {
 app.post('/success', function (req, res) {
   console.log("RESPONSE FROM SUCCESS")
   console.log(req);
+  setTimeout(() => {
+    stepFour();
+  }, 3000)
   console.log("RESPONSE FROM SUCCESS - END")
   return res.status(201).send({
     success: true,
