@@ -55,11 +55,12 @@ const stepFour = () => {
   ];
   const data = {
     token,
-    documents: newDocuments,
+    documents: JSON.stringify(newDocuments),
     signatureFormat: "pades",
     signatureLevel: "b",
     userCertificate: certificate,
   };
+
   config.data = data;
 
   axios(config)
@@ -163,40 +164,8 @@ app.post('/signDocument', function (req, res) {
   console.log("RESPONSE FROM SIGN DOCUMENT - END");
 
   setTimeout(() => {
-    config.url = "https://test.epotpis.rdd.hr/api/v1/pades";
-    config.method = "patch";
-    const newDocuments = [
-      {
-        hash: documents[0].hash,
-        signedHash: documents[0].signedHash,
-        verificationCode: documents[0].verificationCode,
-        mimetype: documents[0].mimetype,
-      }
-    ];
-    const data = {
-      token,
-      documents: newDocuments,
-      signatureFormat: "pades",
-      signatureLevel: "b",
-      userCertificate: certificate,
-    };
-    config.data = data;
-    const _data = JSON.parse(JSON.stringify(config));
-    console.log(_data)
-    console.log("_data")
-    axios(config)
-      .then(function (response) {
-        const res = JSON.parse(JSON.stringify(response.data));
-        console.log("4 4 4 4 4 STEP FOUR")
-        console.log(res)
-        // stepFive();
-      })
-      .catch(function (error) {
-        const err = JSON.parse(JSON.stringify(error));
-        console.log(err);
-        console.log("ERRORRRR");
-      });
-  }, 20000)
+    stepFour();
+  }, 3000)
   return res.status(201).send({
     success: true,
   })
@@ -221,31 +190,6 @@ app.post('/error', function (req, res) {
 
 });
 
-app.post('/home', function (req, res) {
-  console.log("RESPONSE FROM E-POTPIS");
-
-  res.send(`<!DOCTYPE html>
-<html>
-<body>
-
-<h1>My First Heading</h1>
-
-</body>
-</html>`);
-});
-
-
-app.get('/home', (req, res) => {
-  res
-    .status(200)
-    .send(`<!DOCTYPE html>
-<html>
-<body>
-<h1>Poslan request</h1>
-</body>
-</html>`)
-    .end();
-});
 
 // Start the server
 const PORT = process.env.PORT || 8080;
