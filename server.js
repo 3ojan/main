@@ -168,7 +168,6 @@ app.post('/success', function (req, res) {
     success: true,
   })
   // stepFour();
-
 });
 app.post('/error', function (req, res) {
   console.log("RESPONSE FROM ERROR")

@@ -1,3 +1,4 @@
+
 const getData = (token, verificationCode) => {
   return {
     "token": token,
