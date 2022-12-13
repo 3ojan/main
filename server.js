@@ -40,6 +40,7 @@ let token;
 let verificationCodes;
 let documents;
 let certificate;
+let signedDocumentsResponse;
 
 
 const stepFour = () => {
@@ -58,7 +59,7 @@ const stepFour = () => {
 
   const data = {
     token,
-    documents: { ...documents },
+    documents: signedDocumentsResponse,
     signatureFormat: "pades",
     signatureLevel: "b",
     userCertificate: certificate,
@@ -164,6 +165,7 @@ app.post('/signDocument', function (req, res) {
   const response = JSON.parse(JSON.stringify(req.body));
   certificate = response.userCertificate;
   documents = response.documents;
+  signedDocumentsResponse = response.data.documents;
   console.log("RESPONSE FROM SIGN DOCUMENT - END");
 
   setTimeout(() => {
