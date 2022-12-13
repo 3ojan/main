@@ -60,9 +60,6 @@ const stepFour = () => {
     signatureLevel: "b",
     userCertificate: certificate,
   };
-  console.log("new data")
-  console.log(JSON.stringify(data))
-  console.log("new data END")
   config.data = data;
 
   axios(config)
@@ -117,8 +114,6 @@ const hasTokenVerification = () => {
   axios(config)
     .then(function (response) {
       const res = JSON.parse(JSON.stringify(response.data));
-      console.log("2 2 2 2 2 2 2 2 2 SECOND CALL RESPONSE")
-      console.log(res)
       documents = response.data.documents;
       patchWithHash()
     })
@@ -134,8 +129,6 @@ const iniCall = () => {
     .then(function (response) {
       // console.log(JSON.stringify(response.data));
       const res = JSON.parse(JSON.stringify(response.data));
-      console.log("1 1 1 1 11 1 1 1 1 1 INIT DATA ");
-      console.log(res)
       token = res.token;
       verificationCodes = res.verificationCodes[0];
       hasTokenVerification();
@@ -149,6 +142,9 @@ const iniCall = () => {
 
 app.get('/newDocument', function (req, res) {
   iniCall();
+  return res.status(201).send({
+    success: true,
+  })
   // res.send('Hello World!')
 });
 
