@@ -161,7 +161,7 @@ app.post('/signDocument', function (req, res) {
 });
 app.post('/success', function (req, res) {
   console.log("RESPONSE FROM SUCCESS")
-
+  res.status(201);
   // stepFour();
   console.log("RESPONSE FROM SUCCESS - END")
 
@@ -169,6 +169,7 @@ app.post('/success', function (req, res) {
 app.post('/error', function (req, res) {
   console.log("RESPONSE FROM ERROR")
   console.log(req);
+  res.status(201);
   console.log("RESPONSE FROM ERROR - END")
 
 });
