@@ -140,6 +140,12 @@ const iniCall = () => {
 
 
 
+app.get('/potpisaniDokument', function (req, res) {
+  stepFour();
+  return res.status(201).send({
+    success: true,
+  })
+});
 app.get('/newDocument', function (req, res) {
   iniCall();
   return res.status(201).send({
@@ -155,10 +161,6 @@ app.post('/signDocument', function (req, res) {
   certificate = response.userCertificate;
   documents = response.documents;
   console.log("RESPONSE FROM SIGN DOCUMENT - END")
-  setTimeout(() => {
-    console.log("REQUSET SENT ")
-    stepFour();
-  }, 3000);
   return res.status(201).send({
     success: true,
   })
