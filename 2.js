@@ -6,7 +6,7 @@ const getData = (token, verificationCode) => {
     "signatureType": "sign",
     "addVisualData": true,
     "personNaturalData": {
-      "nameSurname": "Ana Ivanov",
+      "nameSurname": "Domagoj Pavić",
       "pin": "27082340727",
       "pinCountry": "HR"
     },
