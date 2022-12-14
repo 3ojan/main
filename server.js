@@ -3,6 +3,7 @@ var cors = require('cors')
 var axios = require('axios');
 const bp = require('body-parser')
 var second = require('./2.js');
+var third = require('./3.js');
 const app = express();
 app.use(cors())
 app.use(bp.urlencoded({ extended: true }))
@@ -67,7 +68,8 @@ const stepFour = () => {
     userCertificate: certificate,
   };
 
-  config.data = __data;
+  config.data = JSON.stringify(__data);
+
 
   axios(config)
     .then(function (response) {
@@ -198,7 +200,7 @@ app.post('/error', function (req, res) {
 // Start the server
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
-  // iniCall();
+  stepFour()
   console.log(`App listening on port ${PORT}`);
   console.log('Press Ctrl+C to quit.');
 });
