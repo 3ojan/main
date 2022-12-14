@@ -7,7 +7,7 @@ const getData = (token, verificationCode) => {
     "addVisualData": true,
     "personNaturalData": {
       "nameSurname": "Domagoj Pavić",
-      "pin": "27082340727",
+      "pin": "26688614868",
       "pinCountry": "HR"
     },
     "documents": [
