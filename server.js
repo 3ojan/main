@@ -170,9 +170,6 @@ app.post('/signDocument', function (req, res) {
   signedDocumentsResponse = req.body.documents;
   console.log("RESPONSE FROM SIGN DOCUMENT - END");
 
-  setTimeout(() => {
-    stepFour();
-  }, 3000)
   return res.status(201).send({
     success: true,
   })
