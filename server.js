@@ -174,7 +174,6 @@ app.post('/signDocument', function (req, res) {
     success: true,
   })
   // res.send('Hello World!')
-
 });
 app.post('/success', function (req, res) {
   console.log("RESPONSE FROM SUCCESS")
